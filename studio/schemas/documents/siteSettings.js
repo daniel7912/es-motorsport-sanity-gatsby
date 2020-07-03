@@ -21,6 +21,16 @@ export default {
       title: 'Facebook URL'
     },
     {
+      name: 'instagramURL',
+      type: 'string',
+      title: 'Instagram URL'
+    },
+    {
+      name: 'contactDetails',
+      type: 'contactDetails',
+      title: 'Contact Details'
+    },
+    {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',

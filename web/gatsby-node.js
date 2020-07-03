@@ -1,14 +1,53 @@
-const {isFuture} = require('date-fns')
+const { isFuture } = require("date-fns")
 /**
  * Implement Gatsby's Node APIs in this file.
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const {format} = require('date-fns')
+const { format } = require("date-fns")
 
-async function createBlogPostPages (graphql, actions) {
-  const {createPage} = actions
+async function createSanityPages(graphql, actions) {
+  const { createPage } = actions
+  const result = await graphql(`
+    {
+      allSanityPage(filter: { slug: { current: { ne: null } } }) {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) throw result.errors
+
+  const pageEdges = (result.data.allSanityPage || {}).edges || []
+
+  pageEdges.forEach((edge, index) => {
+    const { id, slug = {} } = edge.node
+    let path
+
+    if (slug.current === "home") {
+      path = "/"
+    } else {
+      path = `/${slug.current}/`
+    }
+
+    createPage({
+      path,
+      component: require.resolve("./src/templates/page.js"),
+      context: { id },
+    })
+  })
+}
+
+async function createBlogPostPages(graphql, actions) {
+  const { createPage } = actions
   const result = await graphql(`
     {
       allSanityPost(
@@ -34,18 +73,19 @@ async function createBlogPostPages (graphql, actions) {
   postEdges
     .filter(edge => !isFuture(edge.node.publishedAt))
     .forEach((edge, index) => {
-      const {id, slug = {}, publishedAt} = edge.node
-      const dateSegment = format(publishedAt, 'YYYY/MM')
+      const { id, slug = {}, publishedAt } = edge.node
+      const dateSegment = format(publishedAt, "YYYY/MM")
       const path = `/blog/${dateSegment}/${slug.current}/`
 
       createPage({
         path,
-        component: require.resolve('./src/templates/blog-post.js'),
-        context: {id}
+        component: require.resolve("./src/templates/blog-post.js"),
+        context: { id },
       })
     })
 }
 
-exports.createPages = async ({graphql, actions}) => {
+exports.createPages = async ({ graphql, actions }) => {
   await createBlogPostPages(graphql, actions)
+  await createSanityPages(graphql, actions)
 }

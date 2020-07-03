@@ -22,9 +22,9 @@ export default {
       }
     },
     {
-      name: 'body',
-      type: 'bodyPortableText',
-      title: 'Body'
+      name: 'pageBuilder',
+      type: 'pageBuilder',
+      title: 'Page Builder'
     }
   ],
   preview: {

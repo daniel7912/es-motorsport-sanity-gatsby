@@ -12,12 +12,19 @@ import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 
 // Object types
-import bodyPortableText from './objects/bodyPortableText'
-import bioPortableText from './objects/bioPortableText'
-import { carousel, carouselSlide } from './objects/carousel'
-import excerptPortableText from './objects/excerptPortableText'
-import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
+import bioPortableText from './objects/bioPortableText'
+import bodyPortableText from './objects/bodyPortableText'
+import buttonLink from './objects/buttonLink'
+import card from './objects/card'
+import excerptPortableText from './objects/excerptPortableText'
+import featureBlock from './objects/featureBlock'
+import { grid, gridColumn, gridSettings } from './objects/grid'
+import mainImage from './objects/mainImage'
+import pageBuilder from './objects/pageBuilder'
+import pageBuilderContent from './objects/pageBuilderContent'
+import { carousel, carouselSlide } from './objects/carousel'
+import { phoneNumber, contactDetails } from './objects/contactDetails'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -35,11 +42,21 @@ export default createSchema({
     author,
     mainImage,
     authorReference,
-    bodyPortableText,
     bioPortableText,
+    bodyPortableText,
+    buttonLink,
+    card,
     carousel,
     carouselSlide,
-    excerptPortableText
+    contactDetails,
+    excerptPortableText,
+    featureBlock,
+    grid,
+    gridColumn,
+    gridSettings,
+    pageBuilder,
+    pageBuilderContent,
+    phoneNumber
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

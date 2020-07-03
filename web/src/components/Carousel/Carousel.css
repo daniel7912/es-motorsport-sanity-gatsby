@@ -1,0 +1,115 @@
+.slide {
+  position: relative;
+}
+
+.text-wrapper {
+  position: absolute;
+  width: 80%;
+  max-width: 1440px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @apply whitespace-pre-wrap;
+}
+
+.slide-text {
+  max-width: 90%;
+}
+
+.text-wrapper h1,
+.text-wrapper h2,
+.text-wrapper h3 {
+  @apply uppercase text-white text-3xl leading-tight font-medium mb-6;
+}
+
+.text-wrapper p {
+  @apply text-white text-xl font-light mb-12;
+}
+
+.slick-dots {
+  bottom: 48px;
+}
+
+.slick-dots li {
+  margin: 0 8px;
+}
+
+.slick-dots li,
+.slick-dots li button {
+  width: 22px;
+  height: 22px;
+}
+
+.slick-dots li button:before {
+  content: "";
+  font-size: 18px;
+  background-color: white;
+  opacity: 1;
+  border: 4px solid white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+}
+
+.slick-dots li.slick-active button:before {
+  background-color: var(--secondary);
+  @apply bg-secondary;
+  opacity: 1;
+}
+
+.slick-prev,
+.slick-next {
+  @apply z-10 text-white transition duration-300;
+  width: auto;
+  height: auto;
+  font-size: 2rem;
+  opacity: 0;
+}
+
+.slick-slider:hover .slick-prev,
+.slick-slider:hover .slick-next {
+  opacity: 1;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  color: var(--secondary);
+}
+
+.slick-prev {
+  left: 24px;
+}
+
+.slick-next {
+  right: 24px;
+}
+
+@media (min-width: 640px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1024px) {
+  .slide-text {
+    max-width: 80%;
+  }
+
+  .text-wrapper h1,
+  .text-wrapper h2,
+  .text-wrapper h3 {
+    @apply text-4xl;
+  }
+}
+
+@media (min-width: 1280px) {
+  .slide-text {
+    max-width: 80%;
+  }
+
+  .text-wrapper h1,
+  .text-wrapper h2,
+  .text-wrapper h3 {
+    @apply text-5xl;
+  }
+}

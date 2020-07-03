@@ -1,0 +1,40 @@
+.feature-block {
+  min-height: 100vh;
+}
+
+.block-image {
+  background-size: cover;
+}
+
+.feature-block h1,
+.feature-block h2,
+.feature-block h3,
+.feature-block h4 {
+  @apply text-3xl uppercase mb-8;
+}
+
+.feature-block .block-text {
+  @apply flex px-16 bg-gray-800 text-white;
+}
+
+.feature-block p {
+  @apply mb-6 font-light leading-relaxed;
+}
+
+.feature-block .button {
+  @apply mt-4;
+}
+
+.feature-block .block-text > div {
+  @apply content-center relative py-10 my-10 flex-col self-center;
+}
+
+.feature-block .block-text > div:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background-color: var(--secondary);
+}

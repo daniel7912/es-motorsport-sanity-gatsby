@@ -5,23 +5,30 @@ export const carouselSlide = {
     {
       title: 'Title',
       name: 'title',
-      type: 'string'
+      type: 'text',
+      rows: 3
     },
     {
       title: 'Body',
       name: 'body',
-      type: 'string'
+      type: 'text',
+      rows: 3
     },
     {
       title: 'Image',
       name: 'image',
       type: 'mainImage',
       options: { hotspot: true }
+    },
+    {
+      title: 'Link Button',
+      name: 'link',
+      type: 'buttonLink'
     }
   ],
   preview: {
     select: {
-      title: 'slide.title'
+      title: 'title'
     }
   }
 }
