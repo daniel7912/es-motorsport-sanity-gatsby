@@ -19,7 +19,6 @@ export const query = graphql`
 const PageTemplate = props => {
   const { data } = props
   const page = data && data.page
-  console.log(page)
   return (
     <Layout>
       <PageBuilder contents={page} />
