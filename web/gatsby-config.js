@@ -25,6 +25,14 @@ module.exports = {
       options: {
         printRejected: false,
         tailwind: true,
+        ignore: [
+          "/node_modules/slick-carousel/slick/slick.css",
+          "/node_modules/slick-carousel/slick/slick-theme.css",
+          "src/components/Card/Card.css",
+          "src/components/Carousel/Carousel.css",
+          "src/components/Header1/Header.css",
+          "src/components/NavigationDrawer/NavigationDrawer.css",
+        ],
       },
     },
     "gatsby-plugin-react-helmet",
