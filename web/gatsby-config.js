@@ -20,6 +20,8 @@ module.exports = {
     },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
@@ -31,11 +33,31 @@ module.exports = {
           "src/components/Card/Card.css",
           "src/components/Carousel/Carousel.css",
           "src/components/Header1/Header.css",
+          "src/components/InstagramFeed/InstagramFeed.css",
           "src/components/NavigationDrawer/NavigationDrawer.css",
+        ],
+        whitelist: [
+          "grid",
+          "gap-8",
+          "lg:gap-16",
+          "row-gap-10",
+          "grid-cols-1",
+          "grid-cols-2",
+          "sm:grid-cols-2",
+          "md:grid-cols-2",
+          "lg:grid-cols-3",
+          "lg:grid-cols-4",
+          "xl:grid-cols-3",
         ],
       },
     },
     "gatsby-plugin-react-helmet",
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `1488082837`,
+      },
+    },
     {
       resolve: "gatsby-source-sanity",
       options: {

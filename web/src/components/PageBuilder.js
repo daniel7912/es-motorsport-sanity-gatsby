@@ -4,8 +4,10 @@ import Carousel from "./Carousel/Carousel"
 import FeatureBlock from "./FeatureBlock/FeatureBlock"
 import { v4 } from "uuid"
 import { gridClassNames } from "../lib/helpers"
+import InstagramFeed from "./InstagramFeed/InstagramFeed"
 
 const PageBuilderSection = ({ section, _rawPageBuilder, index }) => {
+  // console.log(section)
   if (section._type === "carousel") {
     return (
       <Carousel
@@ -38,6 +40,8 @@ const PageBuilderSection = ({ section, _rawPageBuilder, index }) => {
         </div>
       </div>
     )
+  } else if (section._type === "instagramFeed") {
+    return <InstagramFeed title={section.title} />
   } else {
     return null
   }

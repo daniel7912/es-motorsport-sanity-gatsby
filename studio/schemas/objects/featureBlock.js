@@ -3,6 +3,7 @@ export default {
   type: 'object',
   title: 'Feature Block',
   fields: [
+    { title: 'Title', name: 'title', type: 'string' },
     { title: 'Image', name: 'image', type: 'mainImage' },
     { title: 'Body', name: 'body', type: 'bodyPortableText' },
     {

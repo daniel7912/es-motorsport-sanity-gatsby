@@ -6,14 +6,16 @@ import "./FeatureBlock.css"
 
 const FeatureBlock = ({ contents, rawPageBuilder }) => {
   return (
-    <div className="feature-block grid grid-cols-2">
-      {contents.layout === "left" && (
-        <div
-          className="block-image"
-          style={{ backgroundImage: `url(${rawPageBuilder.image.asset.url}` }}
-        ></div>
-      )}
-      <div className="block-text">
+    <div
+      className={`feature-block flex ${
+        contents.layout === "left" ? "flex-row" : "flex-row-reverse"
+      }`}
+    >
+      <div
+        className="block-image w-1/2"
+        style={{ backgroundImage: `url(${rawPageBuilder.image.asset.url}` }}
+      ></div>
+      <div className="block-text w-1/2">
         <div>
           <PortableText blocks={rawPageBuilder.body} />
           <Link
@@ -24,12 +26,6 @@ const FeatureBlock = ({ contents, rawPageBuilder }) => {
           </Link>
         </div>
       </div>
-      {contents.layout === "right" && (
-        <div
-          className="block-image"
-          style={{ backgroundImage: `url(${rawPageBuilder.image.asset.url}` }}
-        ></div>
-      )}
     </div>
   )
 }

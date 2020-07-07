@@ -61,6 +61,11 @@ export const query = graphql`
           }
         }
       }
+      ... on SanityInstagramFeed {
+        _key
+        _type
+        title
+      }
       ... on SanityPageBuilderContent {
         _key
         _type

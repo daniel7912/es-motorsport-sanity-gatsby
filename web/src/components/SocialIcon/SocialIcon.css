@@ -1,0 +1,4 @@
+.social-icon.color-light .text-brands-instagram,
+.social-icon.color-light .text-brands-facebook {
+  @apply text-white;
+}

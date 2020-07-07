@@ -1,8 +1,8 @@
 import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
-import { FiInstagram } from "react-icons/fi"
-import { FaFacebookF } from "react-icons/fa"
 import { MdClearAll } from "react-icons/md"
+import Logo from "../Logo"
+import SocialIcon from "../SocialIcon/SocialIcon"
 // import ThemeToggle from "./ThemeToggler"
 
 import "./Header.css"
@@ -31,7 +31,7 @@ export default function Header({ toggleMenu }) {
           <div className="navbar flex border-gray-300">
             <div className="nav-left site-logo pl-4 md:pl-8 text-xl sm:text-2xl md:text-3xl uppercase font-semibold flex-grow self-center">
               <Link to="/">
-                <span className="text-secondary">ES</span>Motorsport
+                <Logo />
               </Link>
             </div>
             <div className="nav-right flex">
@@ -44,26 +44,8 @@ export default function Header({ toggleMenu }) {
                     {contactDetails.phoneNumber.phoneNumberDisplay}
                   </a>
                 )}
-              {instagramURL && (
-                <a
-                  href={instagramURL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="nav-link hidden xs:block self-center"
-                >
-                  <FiInstagram className="text-brands-instagram" />
-                </a>
-              )}
-              {facebookURL && (
-                <a
-                  href={facebookURL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="nav-link hidden xs:block self-center"
-                >
-                  <FaFacebookF className="text-brands-facebook" />
-                </a>
-              )}
+              {instagramURL && <SocialIcon type="instagram" />}
+              {facebookURL && <SocialIcon type="facebook" />}
               <button
                 className="menu-toggle bg-gray-800 outline-none focus:shadow-outline text-white"
                 onClick={toggleMenu}

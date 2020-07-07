@@ -33,7 +33,7 @@ function PrevArrow(props) {
 
 export default class Carousel extends Component {
   render() {
-    const { slides, rawPageBuilder } = this.props
+    const { slides } = this.props
     const settings = {
       dots: true,
       infinite: true,
@@ -56,8 +56,6 @@ export default class Carousel extends Component {
                   {i === 0 && <h1>{s.title}</h1>}
                   {i > 0 && <h2>{s.title}</h2>}
                   {s.body && <p>{s.body}</p>}
-                  {/* <PortableText blocks={rawPageBuilder.slides[i].title} /> */}
-                  {/* <PortableText blocks={rawPageBuilder.slides[i].body} /> */}
                   <div className="buttons-wrapper">
                     <Link to={s.link.url} className="button primary large">
                       <span>{s.link.label}</span>

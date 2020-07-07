@@ -1,0 +1,11 @@
+.footer {
+  @apply bg-gray-800 text-white;
+}
+
+.footer-bottom {
+  @apply bg-black text-white;
+}
+
+.footer h4 {
+  @apply uppercase mb-4 text-secondary;
+}

@@ -22,6 +22,10 @@ export default {
     {
       type: 'grid',
       title: 'Grid'
+    },
+    {
+      type: 'instagramFeed',
+      title: 'Instagram Feed'
     }
   ]
 }

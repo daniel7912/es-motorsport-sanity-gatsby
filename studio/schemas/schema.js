@@ -20,6 +20,7 @@ import card from './objects/card'
 import excerptPortableText from './objects/excerptPortableText'
 import featureBlock from './objects/featureBlock'
 import { grid, gridColumn, gridSettings } from './objects/grid'
+import instagramFeed from './objects/instagramFeed'
 import mainImage from './objects/mainImage'
 import pageBuilder from './objects/pageBuilder'
 import pageBuilderContent from './objects/pageBuilderContent'
@@ -54,6 +55,7 @@ export default createSchema({
     grid,
     gridColumn,
     gridSettings,
+    instagramFeed,
     pageBuilder,
     pageBuilderContent,
     phoneNumber
