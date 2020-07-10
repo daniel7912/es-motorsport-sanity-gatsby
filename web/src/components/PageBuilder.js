@@ -26,7 +26,7 @@ const PageBuilderSection = ({ section, _rawPageBuilder, index }) => {
     )
   } else if (section._type === "grid") {
     return (
-      <div className="container mx-auto py-12">
+      <div className="container mx-auto py-4 md:py-12 px-4">
         <div className={gridClassNames(section.settings)}>
           {section.columns.map((c, columnIndex) => (
             <div className="column" key={v4()}>

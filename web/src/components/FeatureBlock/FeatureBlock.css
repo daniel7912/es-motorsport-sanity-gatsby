@@ -1,28 +1,35 @@
 .feature-block {
   min-height: 100vh;
+  position: relative;
 }
 
 .block-image {
   background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .feature-block h1,
 .feature-block h2,
 .feature-block h3,
 .feature-block h4 {
-  @apply text-3xl uppercase mb-8;
+  @apply text-2xl uppercase mb-4;
 }
 
 .feature-block .block-text {
-  @apply flex px-16 bg-gray-800 text-white;
+  @apply flex px-8 bg-gray-800 text-white z-10 bg-opacity-95;
 }
 
 .feature-block p {
-  @apply mb-6 font-light leading-relaxed;
+  @apply mb-3 font-light leading-relaxed;
 }
 
 .feature-block .button {
-  @apply mt-4;
+  @apply mt-2;
 }
 
 .feature-block .block-text > div {
@@ -37,4 +44,25 @@
   width: 100px;
   height: 3px;
   background-color: var(--secondary);
+}
+
+@media (min-width: 1024px) {
+  .feature-block h1,
+  .feature-block h2,
+  .feature-block h3,
+  .feature-block h4 {
+    @apply text-3xl mb-8;
+  }
+
+  .feature-block p {
+    @apply mb-6 font-light leading-relaxed;
+  }
+
+  .feature-block .button {
+    @apply mt-4;
+  }
+
+  .feature-block .block-text {
+    @apply px-16;
+  }
 }

@@ -7,8 +7,10 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // document schemas
 import author from './documents/author'
 import category from './documents/category'
+import menu from './documents/menu'
 import page from './documents/page'
 import post from './documents/post'
+import vehiclesForSale from './documents/vehiclesForSale'
 import siteSettings from './documents/siteSettings'
 
 // Object types
@@ -22,6 +24,7 @@ import featureBlock from './objects/featureBlock'
 import { grid, gridColumn, gridSettings } from './objects/grid'
 import instagramFeed from './objects/instagramFeed'
 import mainImage from './objects/mainImage'
+import { menuReferencedItem, menuAbsoluteItem } from './objects/menu-item'
 import pageBuilder from './objects/pageBuilder'
 import pageBuilderContent from './objects/pageBuilderContent'
 import { carousel, carouselSlide } from './objects/carousel'
@@ -37,9 +40,11 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     siteSettings,
+    vehiclesForSale,
     page,
     post,
     category,
+    menu,
     author,
     mainImage,
     authorReference,
@@ -56,6 +61,8 @@ export default createSchema({
     gridColumn,
     gridSettings,
     instagramFeed,
+    menuReferencedItem,
+    menuAbsoluteItem,
     pageBuilder,
     pageBuilderContent,
     phoneNumber

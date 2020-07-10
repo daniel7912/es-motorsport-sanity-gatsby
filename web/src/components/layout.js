@@ -7,7 +7,6 @@ import "../styles/global.css"
 const TemplateWrapper = ({ children }) => {
   const [menuOpen, setMenuOpen] = useState(false)
   const toggleMenu = () => {
-    console.log("toggle", !menuOpen)
     setMenuOpen(!menuOpen)
   }
 

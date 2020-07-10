@@ -1,7 +1,8 @@
 import React from "react"
-import { Link } from "gatsby"
 import Img from "gatsby-image"
+import { v4 } from "uuid"
 import PortableText from "../portableText"
+import { MenuAbsoluteItem, MenuReferencedItem } from "../Menu/Menu"
 
 import "./Card.css"
 
@@ -12,9 +13,24 @@ const Card = ({ contents, rawPageBuilder }) => {
       <div className="card-text">
         <h3>{contents.title}</h3>
         <PortableText blocks={rawPageBuilder.body} />
-        <Link to={rawPageBuilder.link.url} className="button primary medium">
-          <span>{rawPageBuilder.link.label}</span>
-        </Link>
+        {rawPageBuilder.link.map(item => (
+          <div className="card-buttons" key={v4()}>
+            {item._type === "menuAbsoluteItem" && (
+              <MenuAbsoluteItem
+                item={item}
+                type="button"
+                classes="button primary large"
+              />
+            )}
+            {item._type !== "menuAbsoluteItem" && (
+              <MenuReferencedItem
+                item={item.referencedItem}
+                type="button"
+                classes="button primary large"
+              />
+            )}
+          </div>
+        ))}
       </div>
     </div>
   )

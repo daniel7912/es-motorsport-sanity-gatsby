@@ -51,11 +51,11 @@ export default class Carousel extends Component {
           {slides.map((s, i) => (
             <div className="slide" key={v4()}>
               <Img fluid={s.image.asset.fluid} alt={s.image.alt} />
-              <div className="text-wrapper hidden sm:block">
+              <div className="text-wrapper">
                 <div className="slide-text">
                   {i === 0 && <h1>{s.title}</h1>}
                   {i > 0 && <h2>{s.title}</h2>}
-                  {s.body && <p>{s.body}</p>}
+                  {s.body && <p className="hidden sm:block">{s.body}</p>}
                   <div className="buttons-wrapper">
                     <Link to={s.link.url} className="button primary large">
                       <span>{s.link.label}</span>

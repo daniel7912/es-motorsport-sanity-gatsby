@@ -38,7 +38,7 @@ export default function InstagramFeed({ title }) {
         const { facebookURL, instagramURL } = data.settings
 
         return (
-          <div className="instagram-feed container mx-auto">
+          <div className="instagram-feed container mx-auto px-4 sm:px-0">
             <h4>{title}</h4>
             <div className="social-icons">
               {instagramURL && (
@@ -52,12 +52,13 @@ export default function InstagramFeed({ title }) {
                 </a>
               )}
             </div>
-            <div className="insta-posts grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="insta-posts grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 row-gap-2">
               {instaPosts.map(p => (
                 <a
                   href={`https://www.instagram.com/p/${p.node.id}`}
                   target="_blank"
                   rel="noreferrer"
+                  key={v4()}
                 >
                   <Img
                     fixed={p.node.localFile.childImageSharp.fixed}

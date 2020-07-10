@@ -51,11 +51,11 @@ body {
 }
 
 .button.medium {
-  @apply py-4 px-8;
+  @apply py-2 px-4;
 }
 
 .button.large {
-  @apply py-4 px-8 text-lg;
+  @apply py-2 px-4 text-sm;
 }
 
 .button.primary {
@@ -80,6 +80,25 @@ body {
 
 .button.secondary:after {
   background-color: var(--primary);
+}
+
+@media (min-width: 640px) {
+  .button.large {
+    @apply py-4 px-8 text-base;
+  }
+}
+
+@media (min-width: 768px) {
+  .button.medium {
+    @apply py-4 px-8;
+  }
+
+  .button.large {
+    @apply py-4 px-8 text-lg;
+  }
+}
+
+@media (min-width: 1024px) {
 }
 
 /* body.dark {

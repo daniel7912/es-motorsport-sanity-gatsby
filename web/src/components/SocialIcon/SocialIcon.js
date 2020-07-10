@@ -4,7 +4,7 @@ import { FiInstagram } from "react-icons/fi"
 import { FaFacebookF } from "react-icons/fa"
 import "./SocialIcon.css"
 
-export default function SocialIcon({ type, color = "default" }) {
+export default function SocialIcon({ type, color = "default", classes = "" }) {
   return (
     <StaticQuery
       query={graphql`
@@ -24,7 +24,7 @@ export default function SocialIcon({ type, color = "default" }) {
                 href={instagramURL}
                 target="_blank"
                 rel="noreferrer"
-                className="nav-link hidden xs:block self-center"
+                className={`nav-link self-center ${classes}`}
               >
                 <FiInstagram
                   className={`${
@@ -40,7 +40,7 @@ export default function SocialIcon({ type, color = "default" }) {
                 href={facebookURL}
                 target="_blank"
                 rel="noreferrer"
-                className="nav-link hidden xs:block self-center"
+                className={`nav-link self-center ${classes}`}
               >
                 <FaFacebookF
                   className={`${

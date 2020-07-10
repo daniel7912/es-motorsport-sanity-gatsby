@@ -12,10 +12,10 @@ const FeatureBlock = ({ contents, rawPageBuilder }) => {
       }`}
     >
       <div
-        className="block-image w-1/2"
+        className="block-image lg:w-1/2"
         style={{ backgroundImage: `url(${rawPageBuilder.image.asset.url}` }}
       ></div>
-      <div className="block-text w-1/2">
+      <div className="block-text lg:w-1/2">
         <div>
           <PortableText blocks={rawPageBuilder.body} />
           <Link

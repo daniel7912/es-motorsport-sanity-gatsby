@@ -7,9 +7,10 @@ export default {
     { title: 'Title', name: 'title', type: 'string' },
     { title: 'Body', name: 'body', type: 'bodyPortableText' },
     {
-      title: 'Link Button',
       name: 'link',
-      type: 'buttonLink'
+      type: 'array',
+      title: 'Button Links',
+      of: [{ type: 'menuReferencedItem' }, { type: 'menuAbsoluteItem' }]
     }
   ],
   preview: {

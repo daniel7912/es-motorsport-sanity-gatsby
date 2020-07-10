@@ -1,5 +1,5 @@
 .instagram-feed {
-  @apply pt-16 pb-24;
+  @apply pt-8 pb-12;
 }
 
 .instagram-feed h4 {
@@ -33,4 +33,10 @@
 .instagram-feed .gatsby-image-wrapper img {
   max-width: 100%;
   height: auto;
+}
+
+@media (min-width: 768px) {
+  .instagram-feed {
+    @apply pt-16 pb-24;
+  }
 }

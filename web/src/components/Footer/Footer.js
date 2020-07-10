@@ -2,6 +2,7 @@ import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 import SocialIcon from "../SocialIcon/SocialIcon"
 import Logo from "../Logo"
+import Menu from "../Menu/Menu"
 
 import "./Footer.css"
 
@@ -14,25 +15,37 @@ export default function Footer() {
             title
             facebookURL
             instagramURL
-            contactDetails {
-              phoneNumber {
-                phoneNumber
-                phoneNumberDisplay
-              }
-              emailAddress
+            footerMenu1 {
+              title
+              _rawMenuItems(resolveReferences: { maxDepth: 10 })
+            }
+            footerMenu2 {
+              title
+              _rawMenuItems(resolveReferences: { maxDepth: 10 })
+            }
+            footerMenu3 {
+              title
+              _rawMenuItems(resolveReferences: { maxDepth: 10 })
             }
           }
         }
       `}
       render={data => {
-        const { title, facebookURL, instagramURL } = data.settings
+        const {
+          title,
+          facebookURL,
+          instagramURL,
+          footerMenu1,
+          footerMenu2,
+          footerMenu3,
+        } = data.settings
         return (
           <footer className="footer">
-            <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-no-wrap flex-wrap flex-col">
-              <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+            <div className="container px-5 py-24 mx-auto flex lg:items-center lg:items-start lg:flex-row lg:flex-no-wrap flex-wrap flex-col">
+              <div className="w-64 flex-shrink-0 lg:mx-0 mx-auto text-center lg:text-left">
                 <Link
                   to="/"
-                  className="flex  text-xl sm:text-2xl md:text-3xl uppercase font-semibold"
+                  className="text-xl sm:text-2xl md:text-3xl uppercase font-semibold"
                 >
                   <Logo />
                 </Link>
@@ -43,59 +56,35 @@ export default function Footer() {
                   ullamcorper aliquam ex.
                 </p>
               </div>
-              <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-                <div className="lg:w-1/4 md:w-1/2 w-full px-4"></div>
-                <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                  <h4>Header 1</h4>
-                  <nav className="list-none mb-10">
-                    <li>
-                      <Link to="/">First Link</Link>
-                    </li>
-                    <li>
-                      <Link to="/">Second Link</Link>
-                    </li>
-                    <li>
-                      <Link to="/">Third Link</Link>
-                    </li>
-                    <li>
-                      <Link to="/">Fourth Link</Link>
-                    </li>
-                  </nav>
-                </div>
-                <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                  <h4>Header 2</h4>
-                  <nav className="list-none mb-10">
-                    <li>
-                      <Link to="/">First Link</Link>
-                    </li>
-                    <li>
-                      <Link to="/">Second Link</Link>
-                    </li>
-                    <li>
-                      <Link to="/">Third Link</Link>
-                    </li>
-                    <li>
-                      <Link to="/">Fourth Link</Link>
-                    </li>
-                  </nav>
-                </div>
-                <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                  <h4>Header 3</h4>
-                  <nav className="list-none mb-10">
-                    <li>
-                      <Link to="/">First Link</Link>
-                    </li>
-                    <li>
-                      <Link to="/">Second Link</Link>
-                    </li>
-                    <li>
-                      <Link to="/">Third Link</Link>
-                    </li>
-                    <li>
-                      <Link to="/">Fourth Link</Link>
-                    </li>
-                  </nav>
-                </div>
+              <div className="flex-grow flex flex-wrap lg:pl-20 -mb-10 lg:mt-0 mt-10 lg:text-left text-center">
+                <div className="hidden xl:block lg:w-1/4 md:w-1/3 w-full px-4"></div>
+                {footerMenu1 && (
+                  <div className="xl:w-1/4 lg:w-1/3 w-full px-4">
+                    <h4>{footerMenu1.title}</h4>
+                    <Menu
+                      rawItems={footerMenu1._rawMenuItems}
+                      classes="list-none mb-10"
+                    />
+                  </div>
+                )}
+                {footerMenu2 && (
+                  <div className="xl:w-1/4 lg:w-1/3 w-full px-4">
+                    <h4>{footerMenu2.title}</h4>
+                    <Menu
+                      rawItems={footerMenu2._rawMenuItems}
+                      classes="list-none mb-10"
+                    />
+                  </div>
+                )}
+                {footerMenu3 && (
+                  <div className="xl:w-1/4 lg:w-1/3 w-full px-4">
+                    <h4>{footerMenu3.title}</h4>
+                    <Menu
+                      rawItems={footerMenu3._rawMenuItems}
+                      classes="list-none mb-10"
+                    />
+                  </div>
+                )}
               </div>
             </div>
             <div className="footer-bottom">

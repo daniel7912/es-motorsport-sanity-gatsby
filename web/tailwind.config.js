@@ -24,6 +24,11 @@ module.exports = {
           instagram: "#E1306C",
         },
       },
+      opacity: {
+        "10": "0.1",
+        "20": "0.2",
+        "95": "0.95",
+      },
       screens: {
         ...screens,
         xs: "380px",

@@ -46,6 +46,30 @@ export default {
       description: 'Publish an author and set a reference to them here.',
       title: 'Author',
       to: [{ type: 'author' }]
+    },
+    {
+      name: 'mainMenu',
+      type: 'reference',
+      title: 'Main Menu',
+      to: [{ type: 'menu' }]
+    },
+    {
+      name: 'footerMenu1',
+      type: 'reference',
+      title: 'Footer Menu 1',
+      to: [{ type: 'menu' }]
+    },
+    {
+      name: 'footerMenu2',
+      type: 'reference',
+      title: 'Footer Menu 2',
+      to: [{ type: 'menu' }]
+    },
+    {
+      name: 'footerMenu3',
+      type: 'reference',
+      title: 'Footer Menu 3',
+      to: [{ type: 'menu' }]
     }
   ]
 }

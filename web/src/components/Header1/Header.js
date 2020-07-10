@@ -44,8 +44,12 @@ export default function Header({ toggleMenu }) {
                     {contactDetails.phoneNumber.phoneNumberDisplay}
                   </a>
                 )}
-              {instagramURL && <SocialIcon type="instagram" />}
-              {facebookURL && <SocialIcon type="facebook" />}
+              {instagramURL && (
+                <SocialIcon type="instagram" classes="hidden xs:block" />
+              )}
+              {facebookURL && (
+                <SocialIcon type="facebook" classes="hidden xs:block" />
+              )}
               <button
                 className="menu-toggle bg-gray-800 outline-none focus:shadow-outline text-white"
                 onClick={toggleMenu}
