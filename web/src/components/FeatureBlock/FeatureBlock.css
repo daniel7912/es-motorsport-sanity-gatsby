@@ -47,6 +47,16 @@
 }
 
 @media (min-width: 1024px) {
+  .block-image {
+    position: relative;
+    width: 50%;
+    height: auto;
+  }
+
+  .feature-block .block-text {
+    @apply bg-opacity-100 px-24;
+  }
+
   .feature-block h1,
   .feature-block h2,
   .feature-block h3,
@@ -60,9 +70,5 @@
 
   .feature-block .button {
     @apply mt-4;
-  }
-
-  .feature-block .block-text {
-    @apply px-16;
   }
 }
