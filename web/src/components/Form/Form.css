@@ -1,0 +1,35 @@
+.form {
+  @apply w-1/2 mx-auto;
+}
+
+.form .field {
+  @apply mb-4;
+}
+
+.form label {
+  @apply block text-gray-700 text-sm font-bold mb-2;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form textarea {
+  @apply appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight;
+}
+
+.form input[type="text"]:focus,
+.form input[type="email"]:focus,
+.form textarea:focus {
+  @apply outline-none shadow-outline;
+}
+
+.form input[type="text"].has-error,
+.form input[type="email"].has-error,
+.form textarea.has-error {
+  @apply border-red-700;
+}
+
+.form input[type="text"].has-error:focus,
+.form input[type="email"].has-error:focus,
+.form textarea.has-error:focus {
+  @apply shadow-red;
+}

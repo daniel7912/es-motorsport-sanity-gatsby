@@ -21,6 +21,12 @@ import buttonLink from './objects/buttonLink'
 import card from './objects/card'
 import excerptPortableText from './objects/excerptPortableText'
 import featureBlock from './objects/featureBlock'
+import {
+  form,
+  formEmailInputField,
+  formTextAreaInputField,
+  formTextInputField
+} from './objects/form'
 import { grid, gridColumn, gridSettings } from './objects/grid'
 import instagramFeed from './objects/instagramFeed'
 import mainImage from './objects/mainImage'
@@ -57,6 +63,10 @@ export default createSchema({
     contactDetails,
     excerptPortableText,
     featureBlock,
+    form,
+    formEmailInputField,
+    formTextAreaInputField,
+    formTextInputField,
     grid,
     gridColumn,
     gridSettings,

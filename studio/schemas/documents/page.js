@@ -22,6 +22,13 @@ export default {
       }
     },
     {
+      name: 'hideTitle',
+      title: 'Hide Page Title?',
+      description:
+        "Enable this option if you don't want the page title to be displayed. For example, on the home page.",
+      type: 'boolean'
+    },
+    {
       name: 'pageBuilder',
       type: 'pageBuilder',
       title: 'Page Builder'

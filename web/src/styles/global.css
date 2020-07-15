@@ -17,6 +17,10 @@ body {
   background-color: var(--bg);
 }
 
+h1 {
+  @apply text-4xl font-semibold mb-8;
+}
+
 .button {
   @apply relative overflow-hidden py-2 px-4 uppercase inline-block font-medium tracking-wide transition duration-300;
 }

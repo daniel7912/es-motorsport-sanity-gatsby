@@ -16,6 +16,10 @@ export default {
       title: 'Carousel'
     },
     {
+      type: 'form',
+      title: 'Form'
+    },
+    {
       type: 'featureBlock',
       title: 'Feature Block'
     },

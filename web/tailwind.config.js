@@ -4,6 +4,9 @@ module.exports = {
   purge: false,
   theme: {
     extend: {
+      boxShadow: {
+        red: "0 0 0 3px rgba(197, 48, 48, 0.5)",
+      },
       fontSize: {
         ...fontSize,
         "4xl": "2.15rem",

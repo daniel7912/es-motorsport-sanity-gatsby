@@ -25,6 +25,11 @@ export const query = graphql`
           }
         }
       }
+      ... on SanityForm {
+        _key
+        _type
+        title
+      }
       ... on SanityGrid {
         _key
         _type

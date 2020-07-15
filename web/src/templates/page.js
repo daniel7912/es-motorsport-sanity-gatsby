@@ -12,6 +12,7 @@ export const query = graphql`
       slug {
         current
       }
+      hideTitle
     }
   }
 `
@@ -22,7 +23,10 @@ const PageTemplate = props => {
   // console.log(page)
   return (
     <Layout>
-      <PageBuilder contents={page} />
+      <div className="page-wrapper">
+        {!page.hideTitle && <h1 className="mt-6 text-center">{page.title}</h1>}
+        <PageBuilder contents={page} />
+      </div>
     </Layout>
   )
 }

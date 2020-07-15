@@ -2,6 +2,7 @@ import React from "react"
 import Card from "./Card/Card"
 import Carousel from "./Carousel/Carousel"
 import FeatureBlock from "./FeatureBlock/FeatureBlock"
+import Form from "./Form/Form"
 import { v4 } from "uuid"
 import { gridClassNames } from "../lib/helpers"
 import InstagramFeed from "./InstagramFeed/InstagramFeed"
@@ -24,6 +25,8 @@ const PageBuilderSection = ({ section, _rawPageBuilder, index }) => {
         rawPageBuilder={_rawPageBuilder[index]}
       />
     )
+  } else if (section._type === "form") {
+    return <Form rawPageBuilder={_rawPageBuilder[index]} />
   } else if (section._type === "grid") {
     return (
       <div className="container mx-auto py-4 md:py-12 px-4">

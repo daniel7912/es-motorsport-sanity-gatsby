@@ -1,5 +1,5 @@
 .footer {
-  @apply bg-gray-800 text-white;
+  @apply bg-gray-800 text-white mt-12;
 }
 
 .footer-bottom {

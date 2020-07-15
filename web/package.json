@@ -49,9 +49,11 @@
     "gatsby-source-filesystem": "^2.3.18",
     "gatsby-source-instagram": "^0.8.0",
     "gatsby-transformer-sharp": "^2.5.10",
+    "react-hook-form": "^6.0.5",
     "react-icons": "^3.10.0",
     "react-slick": "^0.26.1",
     "slick-carousel": "^1.8.1",
+    "slugify": "^1.4.4",
     "stylelint": "^13.6.1",
     "tailwind.macro": "^0.5.10",
     "theme-ui": "^0.3.1"

@@ -1,6 +1,7 @@
 .feature-block {
   min-height: 100vh;
   position: relative;
+  @apply relative mt-8;
 }
 
 .block-image {
@@ -47,6 +48,9 @@
 }
 
 @media (min-width: 1024px) {
+  .feature-block {
+    @apply mt-0;
+  }
   .block-image {
     position: relative;
     width: 50%;
