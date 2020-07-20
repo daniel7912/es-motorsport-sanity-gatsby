@@ -24,7 +24,11 @@ const PageTemplate = props => {
   return (
     <Layout>
       <div className="page-wrapper">
-        {!page.hideTitle && <h1 className="mt-6 text-center">{page.title}</h1>}
+        {!page.hideTitle && (
+          <h1 className="text-3xl sm:text-4xl mt-6 text-center">
+            {page.title}
+          </h1>
+        )}
         <PageBuilder contents={page} />
       </div>
     </Layout>

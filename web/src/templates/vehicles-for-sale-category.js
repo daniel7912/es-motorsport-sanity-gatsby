@@ -40,8 +40,10 @@ const VehiclesForSaleCategoryTemplate = props => {
   return (
     <Layout>
       <div className="container mx-auto py-12 text-center">
-        <h1 className="text-4xl font-semibold mb-8">Vehicles For Sale</h1>
-        <div className="grid grid-cols-3 gap-16">
+        <h1 className="text-3xl sm:text-4xl font-semibold mb-8">
+          Vehicles For Sale
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-16 px-4">
           {vehicles.edges.map(({ node: vehicle }) => (
             <div className="column" key={v4()}>
               <Img

@@ -10,10 +10,12 @@ import InstagramFeed from "./InstagramFeed/InstagramFeed"
 const SectionHeaders = ({ titles }) => (
   <div className="text-center mb-4 md:mb-10">
     {titles.title && (
-      <h2 className="text-4xl font-semibold uppercase">{titles.title}</h2>
+      <h2 className="text-2xl sm:text-4xl font-semibold uppercase">
+        {titles.title}
+      </h2>
     )}
     {titles.subtitle && (
-      <p className="text-lg mt-2 text-gray-800">{titles.subtitle}</p>
+      <p className="sm:text-lg mt-2 text-gray-800">{titles.subtitle}</p>
     )}
   </div>
 )

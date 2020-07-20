@@ -20,7 +20,7 @@
 .text-wrapper h1,
 .text-wrapper h2,
 .text-wrapper h3 {
-  @apply uppercase text-white text-lg leading-tight font-medium mb-2;
+  @apply text-white text-lg leading-tight font-medium mb-2;
 }
 
 .text-wrapper p {
