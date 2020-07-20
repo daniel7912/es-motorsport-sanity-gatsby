@@ -81,25 +81,43 @@ export default function Form({ rawPageBuilder }) {
   const { register, handleSubmit, errors } = useForm()
   const onSubmit = data => {
     console.log(data)
-    setSubmitted(true)
-    // fetch("/", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //   body: encode({
-    //     "form-name": "contact",
-    //     ...data,
-    //   }),
-    // })
-    //   .then(() => {
-    //     navigate("/thanks")
-    //   })
-    //   .catch(error => alert(error))
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "contact",
+        ...data,
+      }),
+    })
+      .then(() => {
+        setSubmitted(true)
+      })
+      .catch(error => alert(error))
   }
+
+  const formName = slugify(rawPageBuilder.title)
 
   return (
     <div className="container mx-auto">
       {!submitted && (
-        <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="form"
+          name={formName}
+          method="post"
+          action="/thanks/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <input type="hidden" name="form-name" value={formName} />
+          <p hidden>
+            <label>
+              Don’t fill this out:{" "}
+              <input name="bot-field" onChange={this.handleChange} />
+            </label>
+          </p>
+
           {rawPageBuilder.formFields.map(field => {
             return (
               <div className="field" key={field._key}>
