@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../containers/layout"
+import SEO from "../components/SEO"
 import { v4 } from "uuid"
 
 export const query = graphql`
@@ -36,9 +37,9 @@ export const query = graphql`
 const VehiclesForSaleCategoryTemplate = props => {
   const { data } = props
   const vehicles = data && data.vehicles
-  console.log(vehicles)
   return (
     <Layout>
+      <SEO title="Vehicles For Sale" />
       <div className="container mx-auto py-12 text-center">
         <h1 className="text-3xl sm:text-4xl font-semibold mb-8">
           Vehicles For Sale

@@ -100,9 +100,9 @@ export default function Form({ rawPageBuilder }) {
   }
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-4">
       <form
-        className="form"
+        className="form md:w-1/2 mx-auto"
         name={formName}
         method="post"
         action="/thanks/"

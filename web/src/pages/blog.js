@@ -69,7 +69,7 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO
-        title={site.title}
+        title="Blog"
         description={site.description}
         keywords={site.keywords}
       />
