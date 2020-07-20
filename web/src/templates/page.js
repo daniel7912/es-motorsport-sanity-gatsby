@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../containers/layout"
 import PageBuilder from "../components/PageBuilder"
-import SEO from "../components/SEO"
+import SEO from "../components/seo"
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {

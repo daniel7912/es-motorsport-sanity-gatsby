@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../containers/layout"
-import SEO from "../components/SEO"
+import SEO from "../components/seo"
 
 const ThanksPage = () => {
   return (

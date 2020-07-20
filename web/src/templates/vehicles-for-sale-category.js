@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../containers/layout"
-import SEO from "../components/SEO"
+import SEO from "../components/seo"
 import { v4 } from "uuid"
 
 export const query = graphql`
