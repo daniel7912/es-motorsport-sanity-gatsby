@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
+import { navigate } from "gatsby"
 import { useForm } from "react-hook-form"
 import "./Form.css"
 
@@ -77,7 +78,8 @@ const FormInput = ({ field, errors, register }) => {
 }
 
 export default function Form({ rawPageBuilder }) {
-  const [submitted, setSubmitted] = useState(false)
+  const formName = slugify(rawPageBuilder.title)
+  // const [submitted, setSubmitted] = useState(false)
   const { register, handleSubmit, errors } = useForm()
   const onSubmit = data => {
     console.log(data)
@@ -86,57 +88,49 @@ export default function Form({ rawPageBuilder }) {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": "contact",
+        "form-name": formName,
         ...data,
       }),
     })
       .then(() => {
-        setSubmitted(true)
+        // setSubmitted(true)
+        navigate("/thanks")
       })
       .catch(error => alert(error))
   }
 
-  const formName = slugify(rawPageBuilder.title)
-
   return (
     <div className="container mx-auto">
-      {!submitted && (
-        <form
-          className="form"
-          name={formName}
-          method="post"
-          action="/thanks/"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <input type="hidden" name="form-name" value={formName} />
-          <p hidden>
-            <label>
-              Don’t fill this out: <input name="bot-field" ref={register} />
-            </label>
-          </p>
-
-          {rawPageBuilder.formFields.map(field => {
-            return (
-              <div className="field" key={field._key}>
-                <FormInput field={field} errors={errors} register={register} />
-              </div>
-            )
-          })}
-
-          <div className="text-right">
-            <button className="button primary small" type="submit">
-              <span>{rawPageBuilder.submitButtonText}</span>
-            </button>
-          </div>
-        </form>
-      )}
-      {submitted && (
-        <p className="text-center text-2xl">
-          Thank you for contacting us. We'll be in touch soon!
+      <form
+        className="form"
+        name={formName}
+        method="post"
+        action="/thanks/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <input type="hidden" name="form-name" value={formName} />
+        <p hidden>
+          <label>
+            Don’t fill this out: <input name="bot-field" ref={register} />
+          </label>
         </p>
-      )}
+
+        {rawPageBuilder.formFields.map(field => {
+          return (
+            <div className="field" key={field._key}>
+              <FormInput field={field} errors={errors} register={register} />
+            </div>
+          )
+        })}
+
+        <div className="text-right">
+          <button className="button primary small" type="submit">
+            <span>{rawPageBuilder.submitButtonText}</span>
+          </button>
+        </div>
+      </form>
     </div>
   )
 }
