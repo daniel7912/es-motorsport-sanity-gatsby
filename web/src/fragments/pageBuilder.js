@@ -45,6 +45,11 @@ export const query = graphql`
             }
           }
         }
+        sectionTitles {
+          title
+          subtitle
+          hideTitles
+        }
         settings {
           xs
           sm

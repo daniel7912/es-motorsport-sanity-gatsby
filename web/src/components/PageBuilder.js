@@ -7,6 +7,17 @@ import { v4 } from "uuid"
 import { gridClassNames } from "../lib/helpers"
 import InstagramFeed from "./InstagramFeed/InstagramFeed"
 
+const SectionHeaders = ({ titles }) => (
+  <div className="text-center mb-4 md:mb-10">
+    {titles.title && (
+      <h2 className="text-4xl font-semibold uppercase">{titles.title}</h2>
+    )}
+    {titles.subtitle && (
+      <p className="text-lg mt-2 text-gray-800">{titles.subtitle}</p>
+    )}
+  </div>
+)
+
 const PageBuilderSection = ({ section, _rawPageBuilder, index }) => {
   // console.log(section)
   if (section._type === "carousel") {
@@ -30,9 +41,12 @@ const PageBuilderSection = ({ section, _rawPageBuilder, index }) => {
   } else if (section._type === "grid") {
     return (
       <div className="container mx-auto py-4 md:py-12 px-4">
+        {section.sectionTitles && !section.sectionTitles.hideTitles && (
+          <SectionHeaders titles={section.sectionTitles} />
+        )}
         <div className={gridClassNames(section.settings)}>
           {section.columns.map((c, columnIndex) => (
-            <div className="column" key={v4()}>
+            <div className="column h-full" key={v4()}>
               <PageBuilderSection
                 section={c}
                 _rawPageBuilder={_rawPageBuilder[index].columns[columnIndex]}

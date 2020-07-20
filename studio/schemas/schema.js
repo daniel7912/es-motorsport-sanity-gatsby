@@ -33,6 +33,7 @@ import mainImage from './objects/mainImage'
 import { menuReferencedItem, menuAbsoluteItem } from './objects/menu-item'
 import pageBuilder from './objects/pageBuilder'
 import pageBuilderContent from './objects/pageBuilderContent'
+import sectionTitles from './objects/sectionTitles'
 import { carousel, carouselSlide } from './objects/carousel'
 import { phoneNumber, contactDetails } from './objects/contactDetails'
 
@@ -75,7 +76,8 @@ export default createSchema({
     menuAbsoluteItem,
     pageBuilder,
     pageBuilderContent,
-    phoneNumber
+    phoneNumber,
+    sectionTitles
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

@@ -1,8 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 import "./Form.css"
 
 const slugify = require("slugify")
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
 
 const FormError = ({ error, required }) => (
   <p className="text-red-700 mt-2">
@@ -71,26 +77,49 @@ const FormInput = ({ field, errors, register }) => {
 }
 
 export default function Form({ rawPageBuilder }) {
+  const [submitted, setSubmitted] = useState(false)
   const { register, handleSubmit, errors } = useForm()
-  const onSubmit = data => console.log(data)
+  const onSubmit = data => {
+    console.log(data)
+    setSubmitted(true)
+    // fetch("/", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //   body: encode({
+    //     "form-name": "contact",
+    //     ...data,
+    //   }),
+    // })
+    //   .then(() => {
+    //     navigate("/thanks")
+    //   })
+    //   .catch(error => alert(error))
+  }
 
   return (
     <div className="container mx-auto">
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        {rawPageBuilder.formFields.map(field => {
-          return (
-            <div className="field" key={field._key}>
-              <FormInput field={field} errors={errors} register={register} />
-            </div>
-          )
-        })}
+      {!submitted && (
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
+          {rawPageBuilder.formFields.map(field => {
+            return (
+              <div className="field" key={field._key}>
+                <FormInput field={field} errors={errors} register={register} />
+              </div>
+            )
+          })}
 
-        <div className="text-right">
-          <button className="button primary small" type="submit">
-            <span>{rawPageBuilder.submitButtonText}</span>
-          </button>
-        </div>
-      </form>
+          <div className="text-right">
+            <button className="button primary small" type="submit">
+              <span>{rawPageBuilder.submitButtonText}</span>
+            </button>
+          </div>
+        </form>
+      )}
+      {submitted && (
+        <p className="text-center text-2xl">
+          Thank you for contacting us. We'll be in touch soon!
+        </p>
+      )}
     </div>
   )
 }

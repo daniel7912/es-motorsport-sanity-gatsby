@@ -41,6 +41,7 @@ export const grid = {
   title: 'Grid',
   fields: [
     { title: 'Title', name: 'title', type: 'string' },
+    { name: 'sectionTitles', type: 'sectionTitles' },
     { title: 'Columns', name: 'columns', type: 'gridColumn' },
     {
       title: 'Settings',

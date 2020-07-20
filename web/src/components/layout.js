@@ -11,10 +11,10 @@ const TemplateWrapper = ({ children }) => {
   }
 
   return (
-    <div>
+    <div className="site-wrapper">
       <Header toggleMenu={toggleMenu} />
       <NavigationDrawer open={menuOpen} toggleMenu={toggleMenu} />
-      <div>{children}</div>
+      <div className="site-content">{children}</div>
       <Footer />
     </div>
   )

@@ -17,6 +17,16 @@ body {
   background-color: var(--bg);
 }
 
+.site-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
+
 h1 {
   @apply text-4xl font-semibold mb-8;
 }

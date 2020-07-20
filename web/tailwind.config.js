@@ -7,6 +7,13 @@ module.exports = {
       boxShadow: {
         red: "0 0 0 3px rgba(197, 48, 48, 0.5)",
       },
+      inset: {
+        "100": "100%",
+      },
+      transitionDuration: {
+        "350": "350ms",
+        "400": "400ms",
+      },
       fontSize: {
         ...fontSize,
         "4xl": "2.15rem",

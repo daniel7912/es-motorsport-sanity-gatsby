@@ -1,5 +1,6 @@
 .card {
-  @apply border border-solid border-gray-500;
+  @apply relative border border-solid border-gray-500;
+  min-height: 100%;
 }
 
 .card-text {
@@ -13,4 +14,20 @@
 .card .button {
   @apply mt-6 w-full;
   max-width: 274px;
+}
+
+.card .image-wrapper {
+  @apply relative overflow-hidden;
+}
+
+.card .image-wrapper .image-menu-wrapper {
+  @apply absolute top-100 left-0 h-full w-full p-4 bg-black bg-opacity-75 text-lg tracking-wide font-light transition-all duration-350 ease-in-out;
+}
+
+.card .image-wrapper:hover .image-menu-wrapper {
+  @apply top-0;
+}
+
+.card .image-wrapper .image-menu-wrapper a {
+  @apply text-white;
 }
