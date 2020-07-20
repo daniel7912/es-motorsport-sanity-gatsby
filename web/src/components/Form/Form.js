@@ -113,8 +113,7 @@ export default function Form({ rawPageBuilder }) {
           <input type="hidden" name="form-name" value={formName} />
           <p hidden>
             <label>
-              Don’t fill this out:{" "}
-              <input name="bot-field" onChange={this.handleChange} />
+              Don’t fill this out: <input name="bot-field" ref={register} />
             </label>
           </p>
 
