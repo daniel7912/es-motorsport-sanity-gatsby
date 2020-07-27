@@ -30,6 +30,7 @@ module.exports = {
         ignore: [
           "/node_modules/slick-carousel/slick/slick.css",
           "/node_modules/slick-carousel/slick/slick-theme.css",
+          "/node_modules/react-image-lightbox/style.css",
           "src/components/Card/Card.css",
           "src/components/Carousel/Carousel.css",
           "src/components/Header1/Header.css",
