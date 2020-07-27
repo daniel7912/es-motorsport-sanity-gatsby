@@ -2,6 +2,26 @@ export default {
   widgets: [
     { name: 'structure-menu' },
     {
+      name: 'netlify',
+      options: {
+        title: 'My Netlify deploys',
+        sites: [
+          {
+            title: 'Sanity Studio',
+            apiId: 'aca8c868-457e-45dd-a0e6-1ae001d1873f',
+            buildHookId: '5efcaabf5b24edb22846f659',
+            name: 'sanity-gatsby-blog-20-studio'
+          },
+          {
+            title: 'Website',
+            apiId: 'e661cd48-8a57-4f1c-92d0-6970c7bfb503',
+            buildHookId: '5efcaabf8d7d1bb67d8a584b',
+            name: 'sanity-gatsby-blog-20-web'
+          }
+        ]
+      }
+    },
+    {
       name: 'project-info',
       options: {
         __experimental_before: [
