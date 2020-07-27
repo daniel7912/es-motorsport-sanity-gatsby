@@ -3,9 +3,35 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV || "development"}`,
 })
 
+const _ = require("lodash")
+
 const clientConfig = require("./client-config")
 
 const isProd = process.env.NODE_ENV === "production"
+
+const buildWhitelist = () => {
+  const sizes = _.range(1, 20)
+  const screenSizes = ["xs", "sm", "md", "lg", "xl"]
+  let classes = []
+
+  screenSizes.forEach(size => {
+    if (size === "xs") {
+      sizes.forEach(s => {
+        classes.push(`gap-${s}`)
+        classes.push(`row-gap-${s}`)
+        classes.push(`grid-cols-${s}`)
+      })
+    } else {
+      sizes.forEach(s => {
+        classes.push(`${size}:gap-${s}`)
+        classes.push(`${size}:row-gap-${s}`)
+        classes.push(`${size}:grid-cols-${s}`)
+      })
+    }
+  })
+
+  return classes
+}
 
 module.exports = {
   plugins: [
@@ -39,16 +65,22 @@ module.exports = {
         ],
         whitelist: [
           "grid",
-          "gap-8",
-          "lg:gap-16",
-          "row-gap-10",
-          "grid-cols-1",
-          "grid-cols-2",
-          "sm:grid-cols-2",
-          "md:grid-cols-2",
-          "lg:grid-cols-3",
-          "lg:grid-cols-4",
-          "xl:grid-cols-3",
+          ...buildWhitelist(),
+          // "gap-6",
+          // "gap-8",
+          // "sm:gap-6",
+          // "md:gap-8",
+          // "lg:gap-10",
+          // "lg:gap-16",
+          // "xl:gap-12",
+          // "row-gap-10",
+          // "grid-cols-1",
+          // "grid-cols-2",
+          // "sm:grid-cols-2",
+          // "md:grid-cols-2",
+          // "lg:grid-cols-3",
+          // "lg:grid-cols-4",
+          // "xl:grid-cols-3",
         ],
       },
     },
