@@ -7,10 +7,6 @@
   @apply pt-5 pb-8 px-8 text-center;
 }
 
-.card h3 {
-  @apply font-semibold text-2xl mb-4;
-}
-
 .card .button {
   @apply mt-6 w-full;
   max-width: 274px;

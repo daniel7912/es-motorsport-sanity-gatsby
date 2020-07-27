@@ -38,6 +38,12 @@ export default {
       title: 'Main image'
     },
     {
+      name: 'imageGallery',
+      type: 'array',
+      title: 'Image Gallery',
+      of: [{ type: 'mainImage', options: { hotspot: true } }]
+    },
+    {
       name: 'excerpt',
       type: 'excerptPortableText',
       title: 'Excerpt',

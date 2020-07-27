@@ -5,6 +5,7 @@ import PortableText from "../portableText"
 import "./FeatureBlock.css"
 
 const FeatureBlock = ({ contents, rawPageBuilder }) => {
+  console.log(contents)
   return (
     <div
       className={`feature-block flex ${
@@ -13,7 +14,7 @@ const FeatureBlock = ({ contents, rawPageBuilder }) => {
     >
       <div
         className="block-image lg:w-1/2"
-        style={{ backgroundImage: `url(${rawPageBuilder.image.asset.url}` }}
+        style={{ backgroundImage: `url(${contents.image.asset.fluid.src}` }}
       ></div>
       <div className="block-text lg:w-1/2">
         <div>

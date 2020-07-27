@@ -1,3 +1,23 @@
+export const carourselSettings = {
+  type: 'object',
+  name: 'carouselSettings',
+  fields: [
+    {
+      title: 'Containered?',
+      name: 'containered',
+      type: 'boolean',
+      description:
+        'Enable this option to display the carousel in a container. Leave disabled for a full width carousel.'
+    },
+    {
+      title: 'Hide Carousel Content?',
+      name: 'hideContent',
+      type: 'boolean',
+      description: 'Enable this option to hide all content and only show an image'
+    }
+  ]
+}
+
 export const carouselSlide = {
   type: 'object',
   name: 'carouselSlide',
@@ -21,9 +41,11 @@ export const carouselSlide = {
       options: { hotspot: true }
     },
     {
-      title: 'Link Button',
       name: 'link',
-      type: 'buttonLink'
+      type: 'array',
+      title: 'Link',
+      of: [{ type: 'menuReferencedItem' }, { type: 'menuAbsoluteItem' }],
+      validation: Rule => Rule.length(1)
     }
   ],
   preview: {
@@ -48,6 +70,11 @@ export const carousel = {
       name: 'slides',
       type: 'array',
       of: [{ type: 'carouselSlide' }]
+    },
+    {
+      title: 'Carousel Settings',
+      type: 'carouselSettings',
+      name: 'carouselSettings'
     }
   ],
   preview: {

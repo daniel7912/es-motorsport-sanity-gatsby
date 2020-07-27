@@ -12,6 +12,11 @@ export default {
       description: 'Titles should be catchy, descriptive, and not too long'
     },
     {
+      name: 'subtitle',
+      type: 'string',
+      title: 'Subtitle'
+    },
+    {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
@@ -22,10 +27,10 @@ export default {
       }
     },
     {
-      name: 'hideTitle',
-      title: 'Hide Page Title?',
+      name: 'hideTitles',
+      title: 'Hide Page Titles?',
       description:
-        "Enable this option if you don't want the page title to be displayed. For example, on the home page.",
+        "Enable this option if you don't want the page titles to be displayed. For example, on the home page.",
       type: 'boolean'
     },
     {

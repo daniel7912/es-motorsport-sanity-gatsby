@@ -5,7 +5,9 @@ import FeatureBlock from "./FeatureBlock/FeatureBlock"
 import Form from "./Form/Form"
 import { v4 } from "uuid"
 import { gridClassNames } from "../lib/helpers"
+import ImageLink from "./ImageLink/ImageLink"
 import InstagramFeed from "./InstagramFeed/InstagramFeed"
+import PortableText from "./portableText"
 
 const SectionHeaders = ({ titles }) => (
   <div className="text-center mb-4 md:mb-10">
@@ -46,7 +48,7 @@ const PageBuilderSection = ({ section, _rawPageBuilder, index }) => {
         {section.sectionTitles && !section.sectionTitles.hideTitles && (
           <SectionHeaders titles={section.sectionTitles} />
         )}
-        <div className={gridClassNames(section.settings)}>
+        <div className={gridClassNames(section.columnSizes, section.gapSizes)}>
           {section.columns.map((c, columnIndex) => (
             <div className="column h-full" key={v4()}>
               <PageBuilderSection
@@ -59,8 +61,16 @@ const PageBuilderSection = ({ section, _rawPageBuilder, index }) => {
         </div>
       </div>
     )
+  } else if (section._type === "imageLink") {
+    return <ImageLink contents={section} rawPageBuilder={_rawPageBuilder} />
   } else if (section._type === "instagramFeed") {
     return <InstagramFeed title={section.title} />
+  } else if (section._type === "pageBuilderContent") {
+    return (
+      <div className="container mx-auto max-w-3xl">
+        <PortableText blocks={_rawPageBuilder[index].body} />
+      </div>
+    )
   } else {
     return null
   }

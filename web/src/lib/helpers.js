@@ -1,13 +1,23 @@
 import { format, isFuture } from "date-fns"
 
-export function gridClassNames(data) {
-  const keys = Object.keys(data)
-  let classes = ["grid gap-8 lg:gap-16 row-gap-10"]
-  keys.forEach(k => {
+export function gridClassNames(columnSizes, gapSizes) {
+  const columnKeys = Object.keys(columnSizes)
+  const gapKeys = Object.keys(gapSizes)
+
+  let classes = ["grid row-gap-10"]
+  columnKeys.forEach(k => {
     if (k === "xs") {
-      classes.push(`grid-cols-${data[k]}`)
+      classes.push(`grid-cols-${columnSizes[k]}`)
     } else {
-      classes.push(`${k}:grid-cols-${data[k]}`)
+      classes.push(`${k}:grid-cols-${columnSizes[k]}`)
+    }
+  })
+
+  gapKeys.forEach(k => {
+    if (k === "xs") {
+      classes.push(`gap-${gapSizes[k]}`)
+    } else {
+      classes.push(`${k}:gap-${gapSizes[k]}`)
     }
   })
   return classes.join(" ")

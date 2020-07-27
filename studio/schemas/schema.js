@@ -27,14 +27,15 @@ import {
   formTextAreaInputField,
   formTextInputField
 } from './objects/form'
-import { grid, gridColumn, gridSettings } from './objects/grid'
+import { grid, gridColumn, gridColumnSizes, gridGapSizes } from './objects/grid'
+import imageLink from './objects/imageLink'
 import instagramFeed from './objects/instagramFeed'
 import mainImage from './objects/mainImage'
 import { menuReferencedItem, menuAbsoluteItem } from './objects/menu-item'
 import pageBuilder from './objects/pageBuilder'
 import pageBuilderContent from './objects/pageBuilderContent'
 import sectionTitles from './objects/sectionTitles'
-import { carousel, carouselSlide } from './objects/carousel'
+import { carousel, carouselSlide, carourselSettings } from './objects/carousel'
 import { phoneNumber, contactDetails } from './objects/contactDetails'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -61,6 +62,7 @@ export default createSchema({
     card,
     carousel,
     carouselSlide,
+    carourselSettings,
     contactDetails,
     excerptPortableText,
     featureBlock,
@@ -70,7 +72,9 @@ export default createSchema({
     formTextInputField,
     grid,
     gridColumn,
-    gridSettings,
+    gridColumnSizes,
+    gridGapSizes,
+    imageLink,
     instagramFeed,
     menuReferencedItem,
     menuAbsoluteItem,

@@ -3,7 +3,7 @@ export default {
   type: 'object',
   title: 'Card',
   fields: [
-    { title: 'Image', name: 'image', type: 'image' },
+    { title: 'Image', name: 'image', type: 'mainImage' },
     { title: 'Title', name: 'title', type: 'string' },
     { title: 'Body', name: 'body', type: 'bodyPortableText' },
     {

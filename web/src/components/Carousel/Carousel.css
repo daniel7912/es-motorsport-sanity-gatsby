@@ -59,6 +59,17 @@
   opacity: 1;
 }
 
+.slick-dots.slick-thumb {
+  position: relative;
+  bottom: 0;
+}
+
+.slick-thumb li {
+  width: 25%;
+  height: auto;
+  margin: 0;
+}
+
 .slick-prev,
 .slick-next {
   @apply z-10 text-white transition duration-300;

@@ -1,5 +1,6 @@
 import React from "react"
 import Figure from "./Figure"
+import Carousel from "./Carousel/Carousel"
 
 const serializers = {
   types: {

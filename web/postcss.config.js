@@ -3,7 +3,7 @@ module.exports = {
     require("postcss-import")({
       plugins: [require("stylelint")],
     }),
-    require("tailwindcss")("./tailwind.config.js"),
+    require("tailwindcss")("./tailwind.js"),
     require("postcss-preset-env")({
       autoprefixer: { grid: false },
       features: {

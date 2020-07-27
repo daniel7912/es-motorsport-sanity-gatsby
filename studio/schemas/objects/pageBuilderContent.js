@@ -3,19 +3,22 @@ export default {
   type: 'object',
   title: 'Content',
   fields: [
-    { name: 'title', type: 'string', title: 'Title' },
-    { name: 'body', type: 'bodyPortableText', title: 'Body' },
-    { name: 'image', type: 'mainImage', title: 'Image' }
+    {
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      description: 'For page builder reference only',
+      validation: Rule => Rule.error('You have to fill out the title.').required()
+    },
+    { name: 'body', type: 'bodyPortableText', title: 'Body' }
   ],
   preview: {
     select: {
-      title: 'title',
-      media: 'image'
+      title: 'title'
     },
-    prepare({ title, media }) {
+    prepare({ title }) {
       return {
         title,
-        media,
         subtitle: 'Content'
       }
     }

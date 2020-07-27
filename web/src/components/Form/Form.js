@@ -127,7 +127,7 @@ export default function Form({ rawPageBuilder }) {
 
         <div className="text-right">
           <button className="button primary small" type="submit">
-            <span>{rawPageBuilder.submitButtonText}</span>
+            <span>{rawPageBuilder.submitButtonText || "Submit"}</span>
           </button>
         </div>
       </form>

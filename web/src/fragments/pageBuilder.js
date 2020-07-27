@@ -8,6 +8,10 @@ export const query = graphql`
         _key
         _type
         title
+        carouselSettings {
+          containered
+          hideContent
+        }
         slides {
           title
           body
@@ -18,10 +22,6 @@ export const query = graphql`
                 ...GatsbySanityImageFluid
               }
             }
-          }
-          link {
-            label
-            url
           }
         }
       }
@@ -34,13 +34,33 @@ export const query = graphql`
         _key
         _type
         columns {
-          _key
-          _type
-          title
-          image {
-            asset {
-              fluid(maxWidth: 1920) {
-                ...GatsbySanityImageFluid
+          ... on SanityCard {
+            _key
+            _type
+            title
+            image {
+              asset {
+                fluid(maxWidth: 1920) {
+                  ...GatsbySanityImageFluid
+                }
+                fixed(width: 500, height: 500) {
+                  ...GatsbySanityImageFixed
+                }
+              }
+            }
+          }
+          ... on SanityImageLink {
+            _key
+            _type
+            title
+            image {
+              asset {
+                fluid(maxWidth: 1920) {
+                  ...GatsbySanityImageFluid
+                }
+                fixed(width: 500, height: 500) {
+                  ...GatsbySanityImageFixed
+                }
               }
             }
           }
@@ -50,7 +70,14 @@ export const query = graphql`
           subtitle
           hideTitles
         }
-        settings {
+        columnSizes {
+          xs
+          sm
+          md
+          lg
+          xl
+        }
+        gapSizes {
           xs
           sm
           md
@@ -65,7 +92,7 @@ export const query = graphql`
         image {
           alt
           asset {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 1600) {
               ...GatsbySanityImageFluid
             }
           }
@@ -80,14 +107,14 @@ export const query = graphql`
         _key
         _type
         title
-        image {
-          alt
-          asset {
-            fluid(maxWidth: 800) {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
+        # image {
+        #   alt
+        #   asset {
+        #     fluid(maxWidth: 800) {
+        #       ...GatsbySanityImageFluid
+        #     }
+        #   }
+        # }
       }
     }
   }

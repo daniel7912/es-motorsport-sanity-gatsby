@@ -1,0 +1,51 @@
+.gatsby-image-wrapper.auto-scale,
+.gatsby-image-wrapper.auto-scale img {
+  max-width: 100%;
+}
+
+.gatsby-image-wrapper.auto-scale img {
+  height: auto !important;
+}
+
+.image-link a {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.image-link h4 {
+  position: absolute;
+  width: 100%;
+  padding: 0 1.6rem;
+  bottom: 1.4rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+    1px 1px 1px rgba(0, 0, 0, 0.5);
+  @apply transition-all duration-400;
+}
+
+.image-link:before {
+  @apply absolute my-auto w-full text-2xl text-white;
+}
+
+.image-hover {
+  @apply absolute bg-primary w-full h-full top-0 left-0 opacity-0 transition-all duration-400;
+}
+
+.image-hover:before {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @apply text-xl font-semibold text-white transition-all duration-300;
+}
+
+.image-link:hover .image-hover {
+  @apply opacity-100;
+}
+
+.image-link:hover .image-hover:before {
+  top: 50%;
+}

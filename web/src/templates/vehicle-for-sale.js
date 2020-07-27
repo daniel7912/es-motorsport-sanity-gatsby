@@ -1,80 +1,79 @@
 import React from "react"
-// import { graphql } from "gatsby"
-// import SEO from "../components/seo"
+import { graphql } from "gatsby"
+import SEO from "../components/seo"
+import ImageGallery from "../components/ImageGallery/ImageGallery"
+import PortableText from "../components/portableText"
 import Layout from "../containers/layout"
+import { imageUrlFor } from "../lib/image-url"
 
-// export const query = graphql`
-//   query VehicleForSaleTemplateQuery($id: String!) {
-//     post: sanityPost(id: {eq: $id}) {
-//       id
-//       publishedAt
-//       categories {
-//         _id
-//         title
-//       }
-//       mainImage {
-//         ...SanityImage
-//         alt
-//       }
-//       title
-//       slug {
-//         current
-//       }
-//       _rawExcerpt(resolveReferences: {maxDepth: 5})
-//       _rawBody(resolveReferences: {maxDepth: 5})
-//       authors {
-//         _key
-//         author {
-//           image {
-//             crop {
-//               _key
-//               _type
-//               top
-//               bottom
-//               left
-//               right
-//             }
-//             hotspot {
-//               _key
-//               _type
-//               x
-//               y
-//               height
-//               width
-//             }
-//             asset {
-//               _id
-//             }
-//           }
-//           name
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query VehicleForSaleTemplateQuery($id: String!) {
+    vehicle: sanityVehiclesForSale(id: { eq: $id }) {
+      id
+      publishedAt
+      mainImage {
+        ...SanityImage
+        alt
+      }
+      imageGallery {
+        alt
+        ...SanityImage
+      }
+      price
+      title
+      slug {
+        current
+      }
+      _rawBody(resolveReferences: { maxDepth: 5 })
+    }
+  }
+`
 
 const VehicleForSaleTemplate = props => {
-  // const { data, errors } = props
-  // const post = data && data.post
+  const { data, errors } = props
+  console.log(data)
+  const vehicle = data && data.vehicle
+  console.log(vehicle)
+  vehicle.imageGallery.map(i => {
+    i.url = imageUrlFor(i).width(960).height(600).url()
+    i.largeURL = imageUrlFor(i).width(1400).url()
+    return i
+  })
+
+  console.log(vehicle.imageGallery)
+
   return (
     <Layout>
-      <p>Vehicle for sale</p>
-      {/* {errors && <SEO title="GraphQL Error" />}
-      {post && (
-        <SEO
-          title={post.title || "Untitled"}
-          description={toPlainText(post._rawExcerpt)}
-          image={post.mainImage}
-        />
-      )}
+      <SEO title="Vehicles For Sale" />
+      <div className="page-wrapper">
+        <div className="container mx-auto">
+          <div className="page-titles">
+            <h1 className="text-2xl sm:text-2xl lg:text-3xl mt-6 text-center">
+              {vehicle.title}
+            </h1>
+            <p className="text-lg lg:text-2xl text-center mb-0">
+              {vehicle.price}
+            </p>
+          </div>
 
-      {errors && (
-        <Container>
-          <GraphQLErrorList errors={errors} />
-        </Container>
-      )}
+          <section className="text-gray-700 body-font overflow-hidden">
+            <div className="container px-5 md:py-8 mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div>
+                  <ImageGallery slides={vehicle.imageGallery} />
+                </div>
+                <div className="lg:pl-10">
+                  <h4 className="text-gray-900 text-2xl underlined underlined-secondary title-font font-semibold mb-4">
+                    Vehicle Info
+                  </h4>
 
-      {post && <BlogPost {...post} />} */}
+                  <PortableText blocks={vehicle._rawBody} />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </Layout>
   )
 }

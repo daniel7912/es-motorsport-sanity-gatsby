@@ -27,8 +27,62 @@ body {
   flex: 1;
 }
 
+.page-titles {
+  @apply relative mb-10 pb-10;
+}
+
+.page-titles:after {
+  content: "";
+  height: 3px;
+  width: 200px;
+  @apply bg-secondary absolute bottom-0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 h1 {
-  @apply text-4xl font-semibold mb-8;
+  @apply text-4xl font-semibold mb-2;
+}
+
+h1.underlined,
+h2.underlined,
+h3.underlined,
+h4.underlined,
+h5.underlined {
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 1.6rem;
+  display: inline-block;
+}
+
+h1.underlined:after,
+h2.underlined:after,
+h3.underlined:after,
+h4.underlined:after,
+h5.underlined:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+}
+
+h1.underlined.underlined-secondary:after,
+h2.underlined.underlined-secondary:after,
+h3.underlined.underlined-secondary:after,
+h4.underlined.underlined-secondary:after,
+h5.underlined.underlined-secondary:after {
+  background-color: var(--secondary);
+}
+
+p {
+  @apply mb-4;
+}
+
+figure {
+  @apply mt-8 mb-8;
 }
 
 .button {

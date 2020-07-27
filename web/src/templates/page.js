@@ -10,10 +10,11 @@ export const query = graphql`
       id
       ...PageBuilder
       title
+      subtitle
       slug {
         current
       }
-      hideTitle
+      hideTitles
     }
   }
 `
@@ -21,14 +22,18 @@ export const query = graphql`
 const PageTemplate = props => {
   const { data } = props
   const page = data && data.page
+  console.log(page)
   return (
     <Layout>
       <SEO title={page.title} />
       <div className="page-wrapper">
-        {!page.hideTitle && (
-          <h1 className="text-3xl sm:text-4xl mt-6 text-center">
-            {page.title}
-          </h1>
+        {!page.hideTitles && (
+          <div className="page-titles">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl mt-6 text-center">
+              {page.title}
+            </h1>
+            <h2 className="text-lg lg:text-xl text-center">{page.subtitle}</h2>
+          </div>
         )}
         <PageBuilder contents={page} />
       </div>
