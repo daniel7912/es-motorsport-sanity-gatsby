@@ -5,7 +5,6 @@ import PortableText from "../portableText"
 import "./FeatureBlock.css"
 
 const FeatureBlock = ({ contents, rawPageBuilder }) => {
-  console.log(contents)
   return (
     <div
       className={`feature-block flex ${

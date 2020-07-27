@@ -31,16 +31,12 @@ export const query = graphql`
 
 const VehicleForSaleTemplate = props => {
   const { data, errors } = props
-  console.log(data)
   const vehicle = data && data.vehicle
-  console.log(vehicle)
   vehicle.imageGallery.map(i => {
     i.url = imageUrlFor(i).width(960).height(600).url()
     i.largeURL = imageUrlFor(i).width(1400).url()
     return i
   })
-
-  console.log(vehicle.imageGallery)
 
   return (
     <Layout>

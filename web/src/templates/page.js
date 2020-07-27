@@ -22,7 +22,7 @@ export const query = graphql`
 const PageTemplate = props => {
   const { data } = props
   const page = data && data.page
-  console.log(page)
+  // console.log(page)
   return (
     <Layout>
       <SEO title={page.title} />

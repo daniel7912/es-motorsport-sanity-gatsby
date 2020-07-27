@@ -37,7 +37,7 @@ export const query = graphql`
 const VehiclesForSaleCategoryTemplate = props => {
   const { data } = props
   const vehicles = data && data.vehicles
-  console.log(vehicles)
+  // console.log(vehicles)
   return (
     <Layout>
       <SEO title="Vehicles For Sale" />

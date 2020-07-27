@@ -34,7 +34,6 @@ function PrevArrow(props) {
 export default class Carousel extends Component {
   render() {
     const { slides, rawPageBuilder } = this.props
-    console.log(rawPageBuilder)
     const settings = {
       dots: true,
       infinite: true,

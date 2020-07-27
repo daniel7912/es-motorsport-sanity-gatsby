@@ -82,8 +82,6 @@ export default function Form({ rawPageBuilder }) {
   // const [submitted, setSubmitted] = useState(false)
   const { register, handleSubmit, errors } = useForm()
   const onSubmit = data => {
-    console.log(data)
-
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
