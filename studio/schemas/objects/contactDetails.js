@@ -14,6 +14,7 @@ export const contactDetails = {
   title: 'Contact Details',
   fields: [
     { name: 'phoneNumber', title: 'Phone Number', type: 'phoneNumber' },
-    { name: 'emailAddress', title: 'Email Address', type: 'string' }
+    { name: 'emailAddress', title: 'Email Address', type: 'string' },
+    { name: 'address', title: 'Address', type: 'text' }
   ]
 }
