@@ -46,7 +46,6 @@ const VehiclesForSaleCategoryTemplate = props => {
           <h1 className="text-2xl sm:text-4xl lg:text-5xl mt-6 text-center">
             Vehicles For Sale
           </h1>
-          <h2 className="text-lg lg:text-xl text-center">Lorem ipsum dolor</h2>
         </div>
 
         <div className="container mx-auto">
