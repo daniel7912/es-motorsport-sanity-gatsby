@@ -3,8 +3,10 @@ import { Link, StaticQuery, graphql } from "gatsby"
 import SocialIcon from "../SocialIcon/SocialIcon"
 import Logo from "../Logo"
 import Menu from "../Menu/Menu"
+import PortableText from "../portableText"
 
 import "./Footer.css"
+import { contactDetails } from "../../../../studio/schemas/objects/contactDetails"
 
 export default function Footer() {
   return (
@@ -15,6 +17,10 @@ export default function Footer() {
             title
             facebookURL
             instagramURL
+            _rawContactDetails
+            contactDetails {
+              emailAddress
+            }
             footerMenu1 {
               title
               _rawMenuItems(resolveReferences: { maxDepth: 10 })
@@ -35,10 +41,13 @@ export default function Footer() {
           title,
           facebookURL,
           instagramURL,
+          _rawContactDetails,
+          contactDetails,
           footerMenu1,
           footerMenu2,
           footerMenu3,
         } = data.settings
+        console.log(data.settings)
         return (
           <footer className="footer">
             <div className="container px-5 py-24 mx-auto flex lg:items-center lg:items-start lg:flex-row lg:flex-no-wrap flex-wrap flex-col">
@@ -49,12 +58,18 @@ export default function Footer() {
                 >
                   <Logo />
                 </Link>
-                <p className="mt-2 text-sm">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  suscipit nisi condimentum nunc dapibus, a venenatis libero
-                  bibendum. Aenean enim sem, elementum vel turpis non,
-                  ullamcorper aliquam ex.
-                </p>
+                <div className="mt-2 text-sm">
+                  {_rawContactDetails.address && (
+                    <PortableText blocks={_rawContactDetails.address} />
+                  )}
+                  {contactDetails.emailAddress && (
+                    <p>
+                      <a href={`mailto:${contactDetails.emailAddress}`}>
+                        {contactDetails.emailAddress}
+                      </a>
+                    </p>
+                  )}
+                </div>
               </div>
               <div className="flex-grow flex flex-wrap lg:pl-20 -mb-10 lg:mt-0 mt-10 lg:text-left text-center">
                 <div className="hidden xl:block lg:w-1/4 md:w-1/3 w-full px-4"></div>
