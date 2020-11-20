@@ -13,6 +13,10 @@ export default function Header({ toggleMenu }) {
       query={graphql`
         query HeadingQuery {
           settings: sanitySiteSettings {
+            logo {
+              ...SanityImage
+              alt
+            }
             facebookURL
             instagramURL
             contactDetails {
@@ -26,12 +30,18 @@ export default function Header({ toggleMenu }) {
         }
       `}
       render={data => {
-        const { contactDetails, facebookURL, instagramURL } = data.settings
+        console.log(data)
+        const {
+          contactDetails,
+          facebookURL,
+          instagramURL,
+          logo,
+        } = data.settings
         return (
           <div className="navbar flex border-gray-300">
             <div className="nav-left site-logo pl-4 md:pl-8 text-xl sm:text-2xl md:text-3xl uppercase font-semibold flex-grow self-center">
               <Link to="/">
-                <Logo />
+                <Logo image={logo} />
               </Link>
             </div>
             <div className="nav-right flex">

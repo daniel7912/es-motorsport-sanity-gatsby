@@ -16,6 +16,11 @@ export default {
       description: 'Describe your blog for search engines and social media.'
     },
     {
+      title: 'Logo',
+      name: 'logo',
+      type: 'mainImage'
+    },
+    {
       name: 'facebookURL',
       type: 'string',
       title: 'Facebook URL'

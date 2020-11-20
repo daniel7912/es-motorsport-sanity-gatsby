@@ -15,6 +15,10 @@ export default function Footer() {
         query FooterQuery {
           settings: sanitySiteSettings {
             title
+            logo {
+              ...SanityImage
+              alt
+            }
             facebookURL
             instagramURL
             _rawContactDetails
@@ -39,6 +43,7 @@ export default function Footer() {
       render={data => {
         const {
           title,
+          logo,
           facebookURL,
           instagramURL,
           _rawContactDetails,
@@ -50,13 +55,13 @@ export default function Footer() {
         console.log(data.settings)
         return (
           <footer className="footer">
-            <div className="container px-5 py-24 mx-auto flex lg:items-center lg:items-start lg:flex-row lg:flex-no-wrap flex-wrap flex-col">
+            <div className="container px-5 py-24 mx-auto flex lg:items-start lg:flex-row lg:flex-no-wrap flex-wrap flex-col">
               <div className="w-64 flex-shrink-0 lg:mx-0 mx-auto text-center lg:text-left">
                 <Link
                   to="/"
                   className="text-xl sm:text-2xl md:text-3xl uppercase font-semibold"
                 >
-                  <Logo />
+                  <Logo image={logo} addPadding />
                 </Link>
                 <div className="mt-2 text-sm">
                   {_rawContactDetails.address && (
