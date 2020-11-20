@@ -30,7 +30,6 @@ export default function Header({ toggleMenu }) {
         }
       `}
       render={data => {
-        console.log(data)
         const {
           contactDetails,
           facebookURL,

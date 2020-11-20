@@ -52,7 +52,6 @@ export default function Footer() {
           footerMenu2,
           footerMenu3,
         } = data.settings
-        console.log(data.settings)
         return (
           <footer className="footer">
             <div className="container px-5 py-24 mx-auto flex lg:items-start lg:flex-row lg:flex-no-wrap flex-wrap flex-col">

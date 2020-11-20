@@ -33,7 +33,6 @@ export default function InstagramFeed({ title }) {
         }
       `}
       render={data => {
-        console.log(data)
         const instaPosts = data.allInstaNode.edges
         const { facebookURL, instagramURL } = data.settings
 
