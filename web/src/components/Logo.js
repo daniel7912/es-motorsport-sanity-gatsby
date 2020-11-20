@@ -1,6 +1,7 @@
 import React from "react"
 import { imageUrlFor } from "../lib/image-url"
 import { buildImageObj } from "../lib/helpers"
+import "./logo.css"
 
 const Logo = ({ image, addPadding }) => {
   const logoImage =
@@ -8,7 +9,13 @@ const Logo = ({ image, addPadding }) => {
       ? imageUrlFor(buildImageObj(image)).width(200).url()
       : ""
   return (
-    <div className={addPadding ? `py-4 px-4 bg-white mb-4` : `py-4`}>
+    <div
+      className={
+        addPadding
+          ? `logo mx-auto lg:mx-0 py-4 px-4 bg-white mb-4`
+          : `logo py-4`
+      }
+    >
       <img src={logoImage} alt={image.alt} />
       {/* <span className="text-secondary">ES</span>Motorsport */}
     </div>
